@@ -9,8 +9,8 @@ namespace StudentUsingCore.Models
     {
         Task AddStudent(Student student);
         Task<List<Student>> GetAllStudents();
-        Task<Student> GetStudentById(int id);
-        Task DeleteStudent(int id);
+        Task<Student> GetStudentById(int? id);
+        Task DeleteStudent(int? id);
 
     }
 }

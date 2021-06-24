@@ -26,19 +26,24 @@ namespace StudentUsingCore.Models
             return lis;
         }
 
-        public async Task<Student> GetStudentById(int id)
+        public async Task<Student> GetStudentById(int? id)
         {
-            return await _db.Students.FindAsync(id);
+            Student student = await _db.Students.FindAsync(id);
+            return student;
         }
 
         //Delete
-        public async Task DeleteStudent(int id)
+        public async Task DeleteStudent(int? id)
         {
             Student student = await _db.Students.FindAsync(id);
             _db.Students.Remove(student);
             await _db.SaveChangesAsync();
         }
 
+        public async Task SaveDetails()
+        {
+            await _db.SaveChangesAsync();
+        }
         
     }
 }
